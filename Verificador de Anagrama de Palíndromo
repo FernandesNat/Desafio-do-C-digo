@@ -7,6 +7,7 @@ public class AnagramaPalindromo {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite uma palavra:");
         String entrada = scanner.nextLine();
+        boolean verificarAnagrama = false;
 
         boolean Anagrama = verificarAnagrama;
         System.out.println(Anagrama ? "Verdadeiro" : "Falso");
