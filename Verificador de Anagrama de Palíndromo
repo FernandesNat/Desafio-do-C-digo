@@ -1,0 +1,36 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class AnagramaPalindromo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite uma palavra:");
+        String entrada = scanner.nextLine();
+
+        boolean Anagrama = verificarAnagrama;
+        System.out.println(Anagrama ? "Verdadeiro" : "Falso");
+    }
+
+    private static boolean verificarAnagrama (String str) {
+        Map<Character, Integer> contadorCaracteres = new HashMap<>();
+
+        for (char c : str.toCharArray()) {
+            contadorCaracteres.put(c, contadorCaracteres.getOrDefault(c, 0) + 1);
+        }
+
+        int qtdImpares = 0;
+
+        for (int contagem : contadorCaracteres.values()) {
+            if (contagem % 2 != 0) {
+                qtdImpares++;
+            }
+
+            if (qtdImpares > 1) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
