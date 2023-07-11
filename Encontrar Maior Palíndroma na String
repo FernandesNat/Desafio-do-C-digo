@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Exercicio3 {
+    public static void main(String[ ] args) {
+        String palavra = "babad";
+        String palindromo = encontrarpalimdromo(palavra);
+        
+        System.out.println("Substring palíndroma mais longa: " + palindromo);
+    }
+
+    private static String palindromo(String palavra) {
+        int tamanho = palavra.length();
+        String palindromo = "";
+        
+        for (int i = 0; i < tamanho; i++) {
+            for (int j = i + 1; j <= tamanho; j++) {
+                String substring = palavra.substring(i, j);
+                
+                if (ehPalindromo(substring) && substring.length() > palindromo.length()) {
+                    palindromo = substring;
+                }
+            }
+        }
+        
+        return palindromo;
+    }
+
+    private static boolean ehPalindromo(String palavra) {
+        int inicio = 0;
+        int fim = palavra.length() - 1;
+        
+        while (inicio < fim) {
+            if (palavra.charAt(inicio) != palavra.charAt(fim)) {
+                return false;
+            }
+            
+            inicio++;
+            fim--;
+        }
+        
+        return true;
+    }
+}
