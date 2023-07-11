@@ -3,24 +3,24 @@ import java.util.Scanner;
 public class Exercicio4 {
     public static void main(String[] args) {
         String frase = "hello. how are you? i'm fine, thank you.";
-        String maiusculas = converterPrimeirasLetrasMaiusculas;
+        String fraseComPrimeirasLetrasMaiusculas = converterPrimeirasLetrasMaiusculas(frase);
 
-        System.out.println("Frase com as primeiras letras em maiúsculo: " + maiusculas);
+        System.out.println("Frase com as primeiras letras em maiúsculo: " + fraseComPrimeirasLetrasMaiusculas);
     }
 
     private static String converterPrimeirasLetrasMaiusculas(String frase) {
         StringBuilder resultado = new StringBuilder();
-        String[ ] palavras = frase.split(" ");
+        String[] palavras = frase.split(" ");
 
         for (int i = 0; i < palavras.length; i++) {
             String palavra = palavras[i];
 
             if (!palavra.isEmpty()) {
                 char primeiraLetra = Character.toUpperCase(palavra.charAt(0));
-                String restoPalavra = palavra.substring(1);
+                String restoPalavra = palavra.substring(1).toLowerCase();
 
-                String maiuscula = primeiraLetra + restoPalavra;
-                resultado.append(maiuscula);
+                String palavraComPrimeiraLetraMaiuscula = primeiraLetra + restoPalavra;
+                resultado.append(palavraComPrimeiraLetraMaiuscula);
             }
 
             if (i < palavras.length - 1) {
