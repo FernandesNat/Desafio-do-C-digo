@@ -1,0 +1,29 @@
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Exercicio2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite uma frase:");
+        String frase = scanner.nextLine();
+
+        String fraseFinal = removerDuplicatas;
+        System.out.println("Frase sem duplicatas: " + fraseFinal);
+    }
+
+    private static String removerDuplicatas(String frase) {
+        Set<Character> caracteres = new HashSet<>();
+        StringBuilder fraseFinal = new StringBuilder();
+
+        for (char c : frase.toCharArray()) {
+            if (!caracteres.contains(c)) {
+                caracteres.add(c);
+                fraseFinal.append(c);
+            }
+        }
+
+        return fraseFinal.toString();
+    }
+}
